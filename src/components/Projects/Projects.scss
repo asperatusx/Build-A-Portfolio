@@ -1,0 +1,41 @@
+@use "../../styles/partials/resets";
+@use "../../styles/partials/variables" as *;
+
+.portfolio {
+
+    &__container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.5rem;
+    }
+
+    &__item {
+        background: $color-bg-variant;
+        padding: 1.2rem;
+        border-radius: 2rem;
+        border: 1px solid transparent;
+        transition: $transition;
+
+        &-image {
+            max-height: 25rem;
+            width: auto;
+            border-radius: 1.5rem;
+            overflow: hidden;
+        }
+
+        &-cta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        & h3 {
+            margin: 1.2rem 0 2rem;
+        }
+
+        &:hover {
+            border-color: $color-bg;
+            background: transparent;
+        }
+    }
+}

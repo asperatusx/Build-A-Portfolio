@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "image": "./assets/project1.jpg",
+        "title": "Crypto Currency Dashboard & Financial Visualization",
+        "github": "https://github.com",
+        "demo": "https://www.heroku.com/"
+    },
+    {
+        "id": 2,
+        "image": "./assets/project2.jpg",
+        "title": "Data science in a big data world",
+        "github": "https://github.com",
+        "demo": "https://www.heroku.com/"
+    },
+    {
+        "id": 3,
+        "image": "./assets/project3.jpg",
+        "title": "Figma dashboard UI kit for data design",
+        "github": "https://github.com",
+        "demo": "https://www.heroku.com/"
+    },
+    {
+        "id": 4,
+        "image": "./assets/project4.jpg",
+        "title": "Maintaining tasks and tracking progress",
+        "github": "https://github.com",
+        "demo": "https://www.heroku.com/"
+    },
+    {
+        "id": 5,
+        "image": "./assets/project5.jpg",
+        "title": "Infographics in Figma",
+        "github": "https://github.com",
+        "demo": "https://www.heroku.com/"
+    },
+    {
+        "id": 6,
+        "image": "./assets/project6.jpg",
+        "title": "Chart templates & infographics",
+        "github": "https://github.com",
+        "demo": "https://www.heroku.com/"
+    }
+]
