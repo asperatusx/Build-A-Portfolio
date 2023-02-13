@@ -1,0 +1,21 @@
+@use "../../styles/partials/resets";
+@use "../../styles/partials/variables" as *;
+
+.about {
+    
+    &__container {
+        display: grid;
+        grid-template-columns: 35% 50%;
+        gap: 15%;
+    }
+
+    &__me {
+        width: 100%;
+        aspect-ratio: 1/1;
+
+        &-image {
+            border-radius: 2rem;
+            overflow: hidden;
+        }
+    }
+}
