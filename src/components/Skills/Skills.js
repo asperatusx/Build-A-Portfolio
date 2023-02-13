@@ -3,8 +3,6 @@ import './Skills.scss'
 import { GiCheckMark } from 'react-icons/gi'
 
 const Skills = ({skills}) => {
-  console.log(skills);
-  
   const newSkills = skills.map((skill, index) => {
     return (
       <article key={index} className="experience__details">

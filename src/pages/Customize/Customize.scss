@@ -1,0 +1,13 @@
+@use "../../styles/partials/resets";
+@use "../../styles/partials/variables" as *;
+
+.modal {
+    padding: 2rem 2rem;
+    margin-bottom: 3rem;
+    display: inline-block;
+    color: $color-bg;
+
+    &:hover {
+        color: $color-primary;
+    }
+}

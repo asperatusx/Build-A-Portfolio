@@ -8,7 +8,6 @@ import Contact from '../../components/Contact/Contact'
 import Nav from '../../components/Nav/Nav'
 import axios from 'axios'
 
-
 const Home = () => {
   const [resume, setResume] = useState({});
   const [skills, setSkills] = useState([]);
