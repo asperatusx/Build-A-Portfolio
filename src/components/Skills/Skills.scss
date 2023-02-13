@@ -9,17 +9,18 @@
         border-radius: 2rem;
         border: 1px solid transparent;
         transition: $transition;
-    }
 
-    &:hover {
-        border-color: $color-bg;
-        cursor: default;
+        &:hover {
+            border-color: $color-bg;
+            cursor: default;
+        }
     }
 
     &__content {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 5rem;
+        padding: 2rem 1rem;
     }
 
     &__details {
