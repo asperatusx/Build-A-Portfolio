@@ -1,8 +1,8 @@
 import React from 'react'
 import './Contact.scss'
-import {MdOutlineEmail} from 'react-icons/md'
-import {AiOutlineWhatsApp} from 'react-icons/ai'
-import {AiOutlineLinkedin} from 'react-icons/ai'
+import { MdOutlineEmail } from 'react-icons/md'
+import { AiOutlineWhatsApp } from 'react-icons/ai'
+import { RiMessengerLine } from 'react-icons/ri'
 import { useRef } from 'react';
 import emailjs from 'emailjs-com'
 
@@ -19,11 +19,11 @@ const Contact = () => {
 
     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
       .then((result) => {
-          console.log(result.text);
+        console.log(result.text);
       }, (error) => {
-          console.log(error.text);
+        console.log(error.text);
       });
-      
+
     e.target.reset();
   };
 
@@ -34,7 +34,24 @@ const Contact = () => {
 
       <div className="container contact__container">
         <div className="contact__options">
-         
+          <article className="contact__option">
+            <MdOutlineEmail className='contact__option-icon' />
+            <h4>Email</h4>
+            <h5>randomuser@gmail.com</h5>
+            <a href="mailto:randomuser@gmail.com" target="_blank" rel="noreferrer">Send a message</a>
+          </article>
+          <article className="contact__option">
+            <RiMessengerLine className='contact__option-icon' />
+            <h4>Messenger</h4>
+            <h5>user1</h5>
+            <a href="https://facebook.com" target="_blank" rel="noreferrer">Send a message</a>
+          </article>
+          <article className="contact__option">
+            <AiOutlineWhatsApp className='contact__option-icon' />
+            <h4>WhatsApp</h4>
+            <h5>+123456789</h5>
+            <a href="https://api.whatsapp.com/send?phone=6479872306" target="_blank" rel="noreferrer">Send a message</a>
+          </article>
         </div>
         <form ref={form} onSubmit={sendEmail}>
           <input type="text" name='name' placeholder='Your Full Name' required />
