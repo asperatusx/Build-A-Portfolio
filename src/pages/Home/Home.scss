@@ -6,8 +6,9 @@
     width: max-content;
     display: inline-block;
     color: $color-primary;
-    padding: 0.75rem 1.2rem;
+    padding: 1rem 1.5rem;
     border-radius: 0.4rem;
+    font-size: 1.2rem;
     cursor: pointer;
     border: 1px solid $color-primary;
     transition: $transition;
@@ -33,3 +34,55 @@ a {
     }
 }
 
+img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+.container {
+    width: $container-width-lg;
+    margin: 0 auto;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: 500;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+h3 {
+    font-size: 2.4rem;
+}
+
+h4 {
+    font-size: 2rem;
+}
+
+h5 {
+    font-size: 1.5rem;
+}
+
+small {
+    font-size: 1rem;
+}
+
+section {
+    margin-top: 8rem;
+}
+
+section > h2, section > h5 {
+    text-align: center;
+    color: $color-primary;
+}
+
+section > h2 {
+    color: var(--color-primary);
+    margin-bottom: 3rem;
+}
