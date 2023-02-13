@@ -5,7 +5,6 @@ import {AiOutlineUser} from 'react-icons/ai'
 import {BiBook} from 'react-icons/bi'
 import {RiServiceLine} from 'react-icons/ri'
 import {AiOutlineMessage} from 'react-icons/ai'
-import { NavLink } from 'react-router-dom'
 
 const Nav = () => {
   const [activeNav, setActiveNav] = useState('#');
