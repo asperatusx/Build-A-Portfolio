@@ -1,0 +1,35 @@
+@use "../../styles/partials/resets";
+@use "../../styles/partials/variables" as *;
+
+
+.btn {
+    width: max-content;
+    display: inline-block;
+    color: $color-primary;
+    padding: 0.75rem 1.2rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    border: 1px solid $color-primary;
+    transition: $transition;
+
+    &-primary {
+        background: $color-primary;
+        color: $color-bg;
+    }
+
+    &:hover {
+        background: $color-white;
+        color: $color-bg;
+        border-color: transparent;
+    }
+}
+
+a {
+    color: $color-primary;
+    transition: $transition;
+
+    &:hover {
+        color: $color-white;
+    }
+}
+
