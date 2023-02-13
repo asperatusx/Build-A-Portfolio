@@ -1,0 +1,35 @@
+@use "../../styles/partials/resets";
+@use "../../styles/partials/variables" as *;
+
+.experience {
+
+    &__container > div {
+        background: $color-light;
+        padding: 2.4rem 5rem;
+        border-radius: 2rem;
+        border: 1px solid transparent;
+        transition: $transition;
+
+        &:hover {
+            border-color: $color-bg;
+            cursor: default;
+        }
+    }
+
+    &__content {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 5rem;
+        padding: 2rem 1rem;
+    }
+
+    &__details {
+        display: flex;
+        gap: 1rem;
+
+        &-icon {
+            margin-top: 0.8rem;
+        }
+    }
+}
+
