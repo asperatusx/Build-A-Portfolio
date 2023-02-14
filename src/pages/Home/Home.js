@@ -15,9 +15,14 @@ const Home = () => {
   const [info, setInfo] = useState({});
 
   useEffect(() => {
+    const token = sessionStorage.getItem("token");
     const getResume = async () => {
       try {
-        let {data} = await axios.get(`${process.env.REACT_APP_URL}`);
+        let {data} = await axios.get(`${process.env.REACT_APP_URL}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
         setResume(data);
         setSkills(data.skills);
         setProjects(data.projects);

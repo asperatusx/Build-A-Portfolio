@@ -1,22 +1,12 @@
 import axios from 'axios';
-import React, { useRef, useState } from 'react'
-import { Link } from 'react-router-dom';
+import React, { useRef } from 'react'
 import './Customize.scss'
-import Drawer from 'react-modern-drawer'
-import 'react-modern-drawer/dist/index.css'
-import {FaAlignJustify} from 'react-icons/fa'
 
 const BACKEND_ENDPOINT = "/customize";
 
 const Customize = () => {
   const form = useRef();
   const form2 = useRef();
-
-  const [isOpen, setIsOpen] = useState(false);
-    const toggleDrawer = () => {
-        setIsOpen((prevState) => !prevState)
-    }
- 
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -43,12 +33,6 @@ const Customize = () => {
 
   return (
     <>
-      <button className='modal' onClick={toggleDrawer}><FaAlignJustify className='modal__btn'/></button>
-      <Drawer open={isOpen} onClose={toggleDrawer} direction='left'>
-        <Link to='/'>Homepage</Link>
-        <Link >Login</Link>
-        <Link >SignUp</Link>
-      </Drawer>
       <form className='form form__skills' ref={form} onSubmit={handleSubmit}>
         <input type="text" name='skill' placeholder='Enter a skill' />
         <button type='submit' className='btn btn-primary'>Add Skill</button>
