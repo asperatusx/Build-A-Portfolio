@@ -1,6 +1,7 @@
 @use "../../styles/partials/resets";
 @use "../../styles/partials/variables" as *;
 
+
 .portfolio {
 
     &__container {
@@ -31,6 +32,7 @@
 
         & h3 {
             margin: 1.2rem 0 2rem;
+            cursor: default;
         }
 
         &:hover {
@@ -38,4 +40,14 @@
             background: transparent;
         }
     }
+}
+
+.swiper-pagination-clickable .swiper-pagination-bullet {
+    width: 1rem;
+    height: 1rem;
+}
+
+.swiper-wrapper {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
 }

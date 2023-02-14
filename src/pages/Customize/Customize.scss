@@ -1,0 +1,42 @@
+@use "../../styles/partials/resets";
+@use "../../styles/partials/variables" as *;
+
+.modal {
+    padding: 2rem 2rem;
+    margin-bottom: 3rem;
+    display: inline-block;
+    color: $color-bg;
+
+    &__btn {
+        font-size: 2rem;
+    }
+
+    &:hover {
+        color: $color-primary;
+    }
+}
+
+.EZDrawer__container {
+    display: flex;
+    flex-direction: column;
+
+    & > a:hover {
+        background: none;
+        color: $color-primary;
+    }
+}
+
+.form {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & > input {
+        width: 30%;
+
+        &::placeholder {
+            text-align: center;
+        }
+    }
+}
