@@ -1,11 +1,13 @@
 import axios from 'axios';
 import React from 'react'
-import { redirect } from 'react-router';
+import { useNavigate } from 'react-router';
 import './Signup.scss'
 
 const signupUrl = `${process.env.REACT_APP_URL}/signup`;
 
 const Signup = ({setIsSignedUp}) => {
+  const navigate = useNavigate();
+
   const handleSignup = (e) => {
     e.preventDefault();
     axios.post(signupUrl, {
@@ -15,7 +17,7 @@ const Signup = ({setIsSignedUp}) => {
     })
     .then((response) => {
       setIsSignedUp(true);
-      redirect('/login')
+      navigate('/login');
     });
     // Here send a POST request to signupUrl with username, name and password data
   };

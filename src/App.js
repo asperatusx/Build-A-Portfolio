@@ -11,7 +11,7 @@ import Login from './pages/Login/Login';
 
 function App() {
   // const [isSignedUp, setIsSignedUp] = useState(false);
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
  
   // // Handle the Signup/Login
   // if (!isSignedUp) return <Signup setIsSignedUp={setIsSignedUp}/>;
@@ -24,7 +24,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />}/>
           <Route path='/customize' element={<Customize />}/>
-          <Route path='/login' element={<Login/>}/>
+          <Route path='/login' element={<Login setIsLoggedIn={setIsLoggedIn}/>}/>
           <Route path='/signup' element={<Signup/>}/>
         </Routes>
       </BrowserRouter>

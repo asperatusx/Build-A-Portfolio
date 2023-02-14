@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import "./Login.scss"
+import { useNavigate } from 'react-router';
 
 const loginUrl = `${process.env.REACT_APP_URL}/login`;
 
+
 const Login = ({setIsLoggedIn}) => {
+  const navigate = useNavigate();
+
   const [isLoginError, setIsLoginError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -19,10 +23,12 @@ const Login = ({setIsLoggedIn}) => {
       setIsLoggedIn(true);
       setIsLoginError(false);
       setErrorMessage("");
+      navigate('/');
     }).catch(error => {
       setIsLoginError(true);
       setErrorMessage(error.message);
     })
+    
 
     // Here send a POST request to loginUrl with username and password data
   };
