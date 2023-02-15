@@ -33,3 +33,14 @@
     }
 }
 
+.delete__btn {
+    color: red;
+    cursor: pointer;
+    font-size: 2rem;
+    margin-top: 0.5rem;
+
+    &:hover {
+        transform: scale(2);
+    }
+}
+

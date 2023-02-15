@@ -1,6 +1,44 @@
 .landing {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     font-size: 3rem;
     padding-top: 5rem;
+    height: 100vh;
+}
+
+.slogan {
+    display: flex;
+    flex-direction: column;
+    margin: 10rem 2rem 0;
+
+    &__one {
+        align-self: flex-start;
+        padding-left: 5rem;
+        margin-bottom: 10rem;
+        animation: slogan-load 1s ease-out;
+    }
+
+    &__two {
+        position: relative;
+        left: 30rem;
+        margin-bottom: 10rem;
+        animation: slogan-load 2s ease-out;
+    }
+
+    &__three {
+        position: relative;
+        left: 60rem;
+        animation: slogan-load 3s ease-out;
+    }
+}
+
+@keyframes slogan-load {
+    0% {
+        display: hidden;
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
 }

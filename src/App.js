@@ -11,11 +11,6 @@ import Landing from './pages/Landing/Landing';
 
 
 function App() {
-  // const [isSignedUp, setIsSignedUp] = useState(false);
- 
-  // // Handle the Signup/Login
-  // if (!isSignedUp) return <Signup setIsSignedUp={setIsSignedUp}/>;
-  // if (!isLoggedIn) return <Login setIsLoggedIn={setIsLoggedIn}/>;
 
   return (
     <div className="App">

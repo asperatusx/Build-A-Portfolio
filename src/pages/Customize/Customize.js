@@ -46,18 +46,36 @@ const Customize = () => {
   }
 
   return (
-    <>
-      <form className='form form__skills' ref={form} onSubmit={handleSubmit}>
-        <input type="text" name='skill' placeholder='Enter a skill' />
-        <button type='submit' className='btn btn-primary'>Add Skill</button>
+    <div className="add">
+      <div className="top">
+        <h2>Add Skill</h2>
+      </div>
+      <form className='login__container' ref={form} onSubmit={handleSubmit}>
+        <div className="input-field">
+          <input type="text" autoComplete='off' className='input' name='skill' placeholder='Enter a skill' />
+        </div>
+        <div className="input-field">
+         <button type='submit' className='btn btn-primary'>Add Skill</button>
+        </div>
       </form>
-      <form className='form form__projects' ref={form2} onSubmit={addProject}>
-        <input type="text" name='projectTitle' placeholder='Enter a project title' />
-        <input type="text" name='projectImage' placeholder='Add a project image link' />
-        <input type="text" name='projectLink' placeholder='Enter a project link' />
-        <button type='submit' className='btn btn-primary'>Add Project</button>
+      <div className="top">
+        <h2>Add Project</h2>
+      </div>
+      <form className='login__container' ref={form2} onSubmit={addProject}>
+        <div className="input-field">
+          <input type="text" autoComplete='off' className='input' name='projectTitle' placeholder='Enter a project title' />
+        </div>
+        <div className="input-field">
+          <input type="text" autoComplete='off' className='input' name='projectImage' placeholder='Add a project image link' />
+        </div>
+        <div className="input-field">
+          <input type="text" autoComplete='off' className='input' name='projectLink' placeholder='Enter a project link' />
+        </div>
+        <div className="input-field">
+          <button type='submit' className='btn btn-primary'>Add Project</button>
+        </div>
       </form>
-    </>
+    </div> 
   )
 }
 

@@ -12,7 +12,9 @@ import { useParams, useNavigate } from 'react-router'
 
 const Home = () => {
   const [resume, setResume] = useState(null);
-  const [isCurrent, setIsCurrent] = useState(null)
+  const [isCurrent, setIsCurrent] = useState(null);
+  const [toggle, setToggle] = useState(false);
+
 
   let { id } = useParams();
   const navigate = useNavigate()
@@ -27,7 +29,6 @@ const Home = () => {
           },
         });
         const { resume, isCurrent } = data
-        console.log(data)
         setResume(resume);
         setIsCurrent(isCurrent)
       }
@@ -37,10 +38,9 @@ const Home = () => {
     }
 
     getResume();
-  }, [])
+  }, [toggle])
 
   useEffect(() => {
-    console.log(id, resume)
 
     if (resume === undefined) {
       navigate('/')
@@ -60,10 +60,10 @@ const Home = () => {
     return (
       <>
         <Header info={resume.basics} />
-        <Nav />
+        <Nav setToggle={setToggle}/>
         <About />
-        <Skills skills={resume.skills} />
-        <Projects projects={resume.projects} />
+        <Skills skills={resume.skills} toggle={toggle} id={id} />
+        <Projects projects={resume.projects} toggle={toggle} id={id} />
         <Contact />
       </>
   
