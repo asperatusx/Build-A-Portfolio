@@ -7,22 +7,29 @@ import Projects from '../../components/Projects/Projects'
 import Contact from '../../components/Contact/Contact'
 import Nav from '../../components/Nav/Nav'
 import axios from 'axios'
+import { useParams, useNavigate } from 'react-router'
+
 
 const Home = () => {
-  const [resume, setResume] = useState({});
-  const [skills, setSkills] = useState([]);
-  const [projects, setProjects] = useState({});
-  const [info, setInfo] = useState({});
+  const [resume, setResume] = useState(null);
+  const [isCurrent, setIsCurrent] = useState(null)
+
+  let { id } = useParams();
+  const navigate = useNavigate()
 
   useEffect(() => {
+    const token = sessionStorage.getItem("token");
     const getResume = async () => {
       try {
-        let {data} = await axios.get(`${process.env.REACT_APP_URL}`);
-        setResume(data);
-        setSkills(data.skills);
-        setProjects(data.projects);
-        setInfo(data.basics);
-        
+        let { data } = await axios.get(`${process.env.REACT_APP_URL}/${id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        const { resume, isCurrent } = data
+        console.log(data)
+        setResume(resume);
+        setIsCurrent(isCurrent)
       }
       catch (error) {
         console.error(error.message);
@@ -32,17 +39,37 @@ const Home = () => {
     getResume();
   }, [])
 
-  return (
-    <>
-      <Header info={info}/>
-      <Nav />
-      <About />
-      <Skills skills={skills}/>
-      <Projects projects={projects} />
-      <Contact />
-    </>
-    
-  )
+  useEffect(() => {
+    console.log(id, resume)
+
+    if (resume === undefined) {
+      navigate('/')
+    }
+
+    if (resume && isCurrent === false) {
+      navigate('/')
+    }
+
+  }, [isCurrent, resume])
+
+  if (!resume) {
+    return <div>loading.....</div>
+  }
+
+  if (isCurrent) {
+    return (
+      <>
+        <Header info={resume.basics} />
+        <Nav />
+        <About />
+        <Skills skills={resume.skills} />
+        <Projects projects={resume.projects} />
+        <Contact />
+      </>
+  
+    )
+  }
+ 
 }
 
 export default Home

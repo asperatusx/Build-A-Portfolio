@@ -1,22 +1,18 @@
 import axios from 'axios';
-import React, { useRef, useState } from 'react'
-import { Link } from 'react-router-dom';
+import React, { useEffect, useRef, useState } from 'react'
 import './Customize.scss'
-import Drawer from 'react-modern-drawer'
-import 'react-modern-drawer/dist/index.css'
-import {FaAlignJustify} from 'react-icons/fa'
 
 const BACKEND_ENDPOINT = "/customize";
 
 const Customize = () => {
+  const [token, setToken] = useState(null);
   const form = useRef();
   const form2 = useRef();
 
-  const [isOpen, setIsOpen] = useState(false);
-    const toggleDrawer = () => {
-        setIsOpen((prevState) => !prevState)
-    }
- 
+  useEffect(() => {
+    const token = sessionStorage.getItem("token");
+    setToken(token);
+  }, [])
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -24,7 +20,11 @@ const Customize = () => {
       const newSkills = {
         skills: form.current.skill.value
       }
-      axios.post(`${process.env.REACT_APP_URL}${BACKEND_ENDPOINT}`, newSkills);
+      axios.post(`${process.env.REACT_APP_URL}${BACKEND_ENDPOINT}`, newSkills, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
     }
     console.log(form.current.skill.value);
     e.target.reset();
@@ -37,18 +37,16 @@ const Customize = () => {
       image: form2.current.projectImage.value,
       demo: form2.current.projectLink.value
     }
-    axios.post(`${process.env.REACT_APP_URL}${BACKEND_ENDPOINT}`, newProjects);
+    axios.post(`${process.env.REACT_APP_URL}${BACKEND_ENDPOINT}`, newProjects, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     e.target.reset();
   }
 
   return (
     <>
-      <button className='modal' onClick={toggleDrawer}><FaAlignJustify className='modal__btn'/></button>
-      <Drawer open={isOpen} onClose={toggleDrawer} direction='left'>
-        <Link to='/'>Homepage</Link>
-        <Link >Login</Link>
-        <Link >SignUp</Link>
-      </Drawer>
       <form className='form form__skills' ref={form} onSubmit={handleSubmit}>
         <input type="text" name='skill' placeholder='Enter a skill' />
         <button type='submit' className='btn btn-primary'>Add Skill</button>
