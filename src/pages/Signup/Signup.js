@@ -31,7 +31,7 @@ const Signup = () => {
         </div>
         <div className="input-field">
           <AiOutlineUser className='login__icon'/>
-          <input type="text" className="input" name="username" placeholder="Username" />
+          <input type="text" autoComplete='off' className="input" name="username" placeholder="Username" />
         </div>
 
         <div className="input-field">

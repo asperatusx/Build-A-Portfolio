@@ -22,13 +22,13 @@
         position: relative;
         left: 30rem;
         margin-bottom: 10rem;
-        animation: slogan-load 2s ease-out 1s;
+        animation: slogan-load 2s ease-out;
     }
 
     &__three {
         position: relative;
         left: 60rem;
-        animation: slogan-load 3s ease-out 3s;
+        animation: slogan-load 3s ease-out;
     }
 }
 
