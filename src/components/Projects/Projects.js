@@ -54,7 +54,7 @@ const Projects = ({ projects, toggle, id }) => {
   })
 
   return (
-    <section id="portfolio">
+    <section data-aos="fade-bottom" data-aos-delay="200" data-aos-once="true" data-aos-duration="1000" data-aos-easing="ease-in-out" id="portfolio">
       <h5>My Recent Work</h5>
       <h2>Projects</h2>
       <Swiper modules={[Pagination]}

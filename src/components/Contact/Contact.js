@@ -28,7 +28,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact">
+    <section data-aos="fade-bottom" data-aos-delay="100" data-aos-once="true" data-aos-duration="1000" data-aos-easing="ease-in-out" id="contact">
       <h5>Get In Touch</h5>
       <h2>Contact Me</h2>
 

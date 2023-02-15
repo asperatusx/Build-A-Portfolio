@@ -8,7 +8,7 @@ import {VscFolderLibrary} from 'react-icons/vsc'
 
 const About = () => {
   return (
-    <section id="about">
+    <section data-aos="fade-bottom" data-aos-delay="100" data-aos-once="true" data-aos-duration="1000" data-aos-easing="ease-in-out" id="about">
       <h5>Get To Know</h5>
       <h2>About Me</h2>
 

@@ -42,7 +42,7 @@ const Skills = ({ skills, toggle, id }) => {
   });
 
   return (
-    <section id="experience">
+    <section data-aos="fade-bottom" data-aos-delay="200" data-aos-once="true" data-aos-duration="1000" data-aos-easing="ease-in-out" id="experience">
       <h5>What Skills I Have</h5>
       <h2>My Experience</h2>
       <div className="container experience__container">
