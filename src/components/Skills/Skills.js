@@ -3,8 +3,23 @@ import './Skills.scss'
 import { GiCheckMark } from 'react-icons/gi'
 import { AiOutlineDelete } from 'react-icons/ai'
 import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Skills = ({ skills, toggle, id }) => {
+
+  const notify = () => {
+    toast.success('Skill Removed', {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      });
+  }
 
   const handleClick = () => async (event) => {
     try {
@@ -18,6 +33,7 @@ const Skills = ({ skills, toggle, id }) => {
           skill: skill
         }
       });
+      notify();
     }
     catch (error) {
       console.log("unable to delete: ", error);
@@ -52,6 +68,7 @@ const Skills = ({ skills, toggle, id }) => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </section>
   )
 }
