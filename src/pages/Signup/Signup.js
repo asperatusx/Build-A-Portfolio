@@ -2,6 +2,8 @@ import axios from 'axios';
 import React from 'react'
 import { useNavigate } from 'react-router';
 import './Signup.scss'
+import {AiOutlineUser} from 'react-icons/ai';
+import {FiLock} from 'react-icons/fi';
 
 const signupUrl = `${process.env.REACT_APP_URL}/signup`;
 
@@ -22,18 +24,24 @@ const Signup = () => {
   };
 
   return (
-    <div className='signup signup__container'>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSignup}>
-        <div className="form-group">
-          Username: <input type="text" name="username" />
+    <div className="login">
+      <form onSubmit={handleSignup} className="login__container">
+        <div className="top">
+          <h1>Sign Up</h1>
         </div>
-        <div className="form-group">
-          Password: <input type="password" name="password" />
+        <div className="input-field">
+          <AiOutlineUser className='login__icon'/>
+          <input type="text" className="input" name="username" placeholder="Username" />
         </div>
-        <button type="submit" className="btn btn-primary">
-          Signup
-        </button>
+
+        <div className="input-field">
+          <FiLock className='login__icon'/>
+          <input type="Password" className="input" name='password' placeholder="Password" />
+        </div>
+
+        <div className="input-field">
+          <input type="submit" className="submit" value="Login" />
+        </div>
       </form>
     </div>
   )

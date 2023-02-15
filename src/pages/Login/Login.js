@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import axios from 'axios';
 import "./Login.scss"
 import { useNavigate } from 'react-router';
+import {AiOutlineUser} from 'react-icons/ai';
+import {FiLock} from 'react-icons/fi';
 
 const loginUrl = `${process.env.REACT_APP_URL}/login`;
 
@@ -19,35 +21,39 @@ const Login = () => {
       username: e.target.username.value,
       password: e.target.password.value
     })
-    .then(({data}) => {
-      sessionStorage.setItem("token", data.token)
-      setIsLoginError(false);
-      setErrorMessage("");
-      console.log(data.id);
-      navigate(`/${data.id}`);
-    }).catch(error => {
-      setIsLoginError(true);
-      setErrorMessage(error.message);
-    })
-    
+      .then(({ data }) => {
+        sessionStorage.setItem("token", data.token)
+        setIsLoginError(false);
+        setErrorMessage("");
+        console.log(data.id);
+        navigate(`/${data.id}`);
+      }).catch(error => {
+        setIsLoginError(true);
+        setErrorMessage(error.message);
+      })
 
-    // Here send a POST request to loginUrl with username and password data
   };
 
   return (
-    <div className='login login__container'>
-      <h1>Login</h1>
-      {isLoginError && <label className="error">{errorMessage}</label>}
-      <form onSubmit={handleLogin}>
-        <div className="form-group">
-          Username: <input type="text" name="username" />
+    <div className="login">
+      <form onSubmit={handleLogin} className="login__container">
+        <div className="top">
+          <h1>Login</h1>
+          {isLoginError && <label classNameName="error">{errorMessage}</label>}
         </div>
-        <div className="form-group">
-          Password: <input type="password" name="password" />
+        <div className="input-field">
+          <AiOutlineUser className='login__icon'/>
+          <input type="text" className="input" name="username" placeholder="Username" />
         </div>
-        <button type="submit" className="btn btn-primary">
-          Login
-        </button>
+
+        <div className="input-field">
+          <FiLock className='login__icon'/>
+          <input type="Password" className="input" name='password' placeholder="Password" />
+        </div>
+
+        <div className="input-field">
+          <input type="submit" className="submit" value="Login" />
+        </div>
       </form>
     </div>
   )
