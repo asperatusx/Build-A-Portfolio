@@ -6,11 +6,12 @@ import { useNavigate } from 'react-router';
 const loginUrl = `${process.env.REACT_APP_URL}/login`;
 
 
-const Login = ({setIsLoggedIn}) => {
+const Login = () => {
   const navigate = useNavigate();
 
   const [isLoginError, setIsLoginError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -20,10 +21,10 @@ const Login = ({setIsLoggedIn}) => {
     })
     .then(({data}) => {
       sessionStorage.setItem("token", data.token)
-      setIsLoggedIn(true);
       setIsLoginError(false);
       setErrorMessage("");
-      navigate('/');
+      console.log(data.id);
+      navigate(`/${data.id}`);
     }).catch(error => {
       setIsLoginError(true);
       setErrorMessage(error.message);

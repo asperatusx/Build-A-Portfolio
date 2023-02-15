@@ -5,7 +5,7 @@ import './Signup.scss'
 
 const signupUrl = `${process.env.REACT_APP_URL}/signup`;
 
-const Signup = ({setIsSignedUp}) => {
+const Signup = () => {
   const navigate = useNavigate();
 
   const handleSignup = (e) => {
@@ -16,7 +16,6 @@ const Signup = ({setIsSignedUp}) => {
       password: e.target.password.value
     })
     .then((response) => {
-      setIsSignedUp(true);
       navigate('/login');
     });
     // Here send a POST request to signupUrl with username, name and password data

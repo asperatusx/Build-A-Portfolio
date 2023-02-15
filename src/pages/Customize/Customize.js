@@ -1,12 +1,18 @@
 import axios from 'axios';
-import React, { useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './Customize.scss'
 
 const BACKEND_ENDPOINT = "/customize";
 
 const Customize = () => {
+  const [token, setToken] = useState(null);
   const form = useRef();
   const form2 = useRef();
+
+  useEffect(() => {
+    const token = sessionStorage.getItem("token");
+    setToken(token);
+  }, [])
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -14,7 +20,11 @@ const Customize = () => {
       const newSkills = {
         skills: form.current.skill.value
       }
-      axios.post(`${process.env.REACT_APP_URL}${BACKEND_ENDPOINT}`, newSkills);
+      axios.post(`${process.env.REACT_APP_URL}${BACKEND_ENDPOINT}`, newSkills, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
     }
     console.log(form.current.skill.value);
     e.target.reset();
@@ -27,7 +37,11 @@ const Customize = () => {
       image: form2.current.projectImage.value,
       demo: form2.current.projectLink.value
     }
-    axios.post(`${process.env.REACT_APP_URL}${BACKEND_ENDPOINT}`, newProjects);
+    axios.post(`${process.env.REACT_APP_URL}${BACKEND_ENDPOINT}`, newProjects, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     e.target.reset();
   }
 

@@ -7,11 +7,11 @@ import axios from "axios";
 import Modal from './components/Modal/Modal';
 import Signup from './pages/Signup/Signup';
 import Login from './pages/Login/Login';
+import Landing from './pages/Landing/Landing';
 
 
 function App() {
   // const [isSignedUp, setIsSignedUp] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
  
   // // Handle the Signup/Login
   // if (!isSignedUp) return <Signup setIsSignedUp={setIsSignedUp}/>;
@@ -22,9 +22,10 @@ function App() {
       <BrowserRouter>
         <Modal/>
         <Routes>
-          <Route path='/' element={<Home />}/>
+          <Route path='/' element={<Landing/>}/>
+          <Route path='/:id' element={<Home />}/>
           <Route path='/customize' element={<Customize />}/>
-          <Route path='/login' element={<Login setIsLoggedIn={setIsLoggedIn}/>}/>
+          <Route path='/login' element={<Login/>}/>
           <Route path='/signup' element={<Signup/>}/>
         </Routes>
       </BrowserRouter>
