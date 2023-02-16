@@ -24,6 +24,10 @@ Install build-a-portfolio with npm
    ```sh
    npm install sass swiper react-toastify react-modern-drawer react-icons emailjs-com axios
    ```
+3. Run App
+   ```sh
+   npm start
+   ```
 
 ## Environment Variables
 
