@@ -1,0 +1,27 @@
+@use "../../styles/partials/resets";
+@use "../../styles/partials/variables" as *;
+
+.modal {
+    position: fixed;
+    padding: 2rem 2rem;
+    display: inline-block;
+    color: $color-bg;
+
+    &__btn {
+        font-size: 2rem;
+    }
+
+    &:hover {
+        color: $color-primary;
+    }
+}
+
+.EZDrawer__container {
+    display: flex;
+    flex-direction: column;
+
+    & > a:hover {
+        background: none;
+        color: $color-primary;
+    }
+}

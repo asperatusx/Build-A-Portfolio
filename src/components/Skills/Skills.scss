@@ -1,0 +1,68 @@
+@use "../../styles/partials/resets";
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+#experience {
+    height: 70vh;
+}
+
+.experience {
+
+    &__container > div {
+        background: $color-light;
+        padding: 2.4rem 5rem;
+        border-radius: 2rem;
+        border: 1px solid transparent;
+        transition: $transition;
+
+        @include tablet {
+            width: 100%;
+            padding: 2rem;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        &:hover {
+            border-color: $color-bg;
+            cursor: default;
+        }
+    }
+
+    &__content {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 5rem;
+        padding: 2rem 1rem;
+
+        @include tablet {
+            padding: 1rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+    }
+
+    &__details {
+        display: flex;
+        gap: 1rem;
+
+        @include tablet {
+            
+        }
+
+        &-icon {
+            margin-top: 0.8rem;
+        }
+    }
+}
+
+.delete__btn {
+    color: red;
+    cursor: pointer;
+    font-size: 2rem;
+    margin-top: 0.5rem;
+
+    &:hover {
+        transform: scale(2);
+    }
+}
+

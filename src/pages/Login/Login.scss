@@ -1,0 +1,56 @@
+@use "../../styles/partials/resets";
+@use "../../styles/partials/variables" as *;
+
+*{
+    font-family: 'poppins' ,sans-serif;
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+
+    &__icon {
+        position: relative;
+        top: 1.3rem;
+        left: 2rem;
+        font-size: 1.3rem;
+    }
+}
+
+h1 {
+    color: black;
+    font-size: 4rem;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 10px 0;
+}
+
+.input-field .input {
+    height: 4rem;
+    width: 100%;
+    border: none;
+    border-radius: 30px;
+    color: black;
+    font-size: 1.5rem;
+    padding: 0 0 0 45px;
+    background: $color-primary-variant;
+    outline: none;
+}
+
+.submit {
+    border: none;
+    border-radius: 30px;
+    font-size: 1.6rem;
+    outline: none;
+    width: 100%;
+    color: black;
+    background: rgba(255,255,255,0.7);
+    cursor: pointer;
+    transition: .3s ;
+
+    &:hover {
+        box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
+    }
+}
