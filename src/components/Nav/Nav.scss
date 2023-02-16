@@ -1,5 +1,6 @@
 @use "../../styles/partials/resets";
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 
 nav {
     background: rgba(0,0,0,0.3);
@@ -24,6 +25,10 @@ nav {
         color: var(--color-light);
         font-size: 1.5rem;
 
+        @include mobile {
+            padding: 0;
+        }
+
         &:hover {
             background: rgba(0,0,0,0.3);
         }
@@ -37,4 +42,14 @@ nav {
 
 .toggle {
     cursor: pointer;
+
+    @include mobile {
+        font-size: 1rem;
+    }
+}
+
+.customize > a {
+    @include mobile {
+        font-size: 1rem;
+    }
 }
