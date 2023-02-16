@@ -28,7 +28,7 @@ const Projects = ({ projects, toggle, id }) => {
       draggable: true,
       progress: undefined,
       theme: "dark",
-      });
+    });
   }
 
   const handleClick = () => async (event) => {
@@ -73,7 +73,24 @@ const Projects = ({ projects, toggle, id }) => {
     <section data-aos="fade-bottom" data-aos-delay="200" data-aos-once="true" data-aos-duration="1000" data-aos-easing="ease-in-out" id="portfolio">
       <h5>My Recent Work</h5>
       <h2>Projects</h2>
-      <Swiper modules={[Pagination]}
+      <Swiper 
+      breakpoints={{
+        320: {
+          width: 200,
+          slidesPerView: 1,
+        },
+        768: {
+          width: 400,
+          spaceBetween: 40,
+          slidesPerView: 1,
+        },
+        1280: {
+          width: 766,
+          spaceBetween: 40,
+          slidesPerView: 1,
+        },
+      }} 
+      modules={[Pagination]}
         spaceBetween={40}
         slidesPerView={3}
         pagination={{ clickable: true }} className="container portfolio__container">

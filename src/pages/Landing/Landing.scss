@@ -1,9 +1,17 @@
+@use "../../styles/partials/resets";
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
 .landing {
     display: flex;
     flex-direction: column;
     font-size: 3rem;
     padding-top: 5rem;
     height: 100vh;
+
+    @include tablet {
+        width: $container-width-md;
+    }
 }
 
 .slogan {
@@ -16,6 +24,7 @@
         padding-left: 5rem;
         margin-bottom: 10rem;
         animation: slogan-load 1s ease-out;
+        
     }
 
     &__two {
@@ -23,12 +32,20 @@
         left: 30rem;
         margin-bottom: 10rem;
         animation: slogan-load 2s ease-out;
+
+        @include tablet {
+            left: 5rem;
+        }
     }
 
     &__three {
         position: relative;
         left: 60rem;
         animation: slogan-load 3s ease-out;
+
+        @include tablet {
+            left: 5rem;
+        }
     }
 }
 

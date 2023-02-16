@@ -1,8 +1,17 @@
 @use "../../styles/partials/resets";
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 
 #portfolio {
     height: 70vh;
+
+    @include tablet {
+        height: initial;
+    }
+
+    @include mobile {
+        margin-top: 25rem;
+    }
 }
 
 .portfolio {
@@ -25,17 +34,35 @@
             width: auto;
             border-radius: 1.5rem;
             overflow: hidden;
+
+            @include tablet {
+                max-height: 10rem;
+            }
+
+            @include mobile {
+                max-height: 15rem;
+                width: 150px;
+            }
         }
 
         &-cta {
             display: flex;
             gap: 1rem;
             margin-bottom: 1rem;
+
+            @include mobile {
+                gap: 0;
+            }
         }
 
         & h3 {
             margin: 1.2rem 0 2rem;
             cursor: default;
+
+            @include mobile {
+                width: 50%;
+                font-size: 2rem;
+            }
         }
 
         &:hover {
@@ -53,4 +80,5 @@
 .swiper-wrapper {
     margin-bottom: 2rem;
     padding-bottom: 2rem;
+
 }
