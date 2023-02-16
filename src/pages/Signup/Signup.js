@@ -4,11 +4,30 @@ import { useNavigate } from 'react-router';
 import './Signup.scss'
 import {AiOutlineUser} from 'react-icons/ai';
 import {FiLock} from 'react-icons/fi';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const signupUrl = `${process.env.REACT_APP_URL}/signup`;
 
 const Signup = () => {
   const navigate = useNavigate();
+
+  const notify = () => {
+    toast.success('Signup Successful! Redirecting to Login', {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      });
+
+      setTimeout(() => {
+        navigate('/login');
+      }, 3000)
+  }
 
   const handleSignup = (e) => {
     e.preventDefault();
@@ -18,13 +37,14 @@ const Signup = () => {
       password: e.target.password.value
     })
     .then((response) => {
-      navigate('/login');
+      notify()
     });
     // Here send a POST request to signupUrl with username, name and password data
   };
 
   return (
     <div className="login">
+      <ToastContainer />
       <form onSubmit={handleSignup} className="login__container">
         <div className="top">
           <h1>Sign Up</h1>
@@ -40,7 +60,7 @@ const Signup = () => {
         </div>
 
         <div className="input-field">
-          <input type="submit" className="submit" value="Login" />
+          <input type="submit" className="submit" value="Sign Up" />
         </div>
       </form>
     </div>

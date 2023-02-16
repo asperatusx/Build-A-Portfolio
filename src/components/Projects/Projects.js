@@ -11,10 +11,25 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import axios from 'axios';
 import { AiOutlineDelete } from 'react-icons/ai'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
 const Projects = ({ projects, toggle, id }) => {
+
+  const notify = () => {
+    toast.success('Project Removed', {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      });
+  }
 
   const handleClick = () => async (event) => {
     try {
@@ -28,6 +43,7 @@ const Projects = ({ projects, toggle, id }) => {
           key: key
         }
       });
+      notify();
     }
     catch (error) {
       console.log("unable to delete: ", error);
@@ -54,7 +70,7 @@ const Projects = ({ projects, toggle, id }) => {
   })
 
   return (
-    <section id="portfolio">
+    <section data-aos="fade-bottom" data-aos-delay="200" data-aos-once="true" data-aos-duration="1000" data-aos-easing="ease-in-out" id="portfolio">
       <h5>My Recent Work</h5>
       <h2>Projects</h2>
       <Swiper modules={[Pagination]}
@@ -63,6 +79,7 @@ const Projects = ({ projects, toggle, id }) => {
         pagination={{ clickable: true }} className="container portfolio__container">
         {newProjects}
       </Swiper>
+      <ToastContainer />
     </section>
   )
 }

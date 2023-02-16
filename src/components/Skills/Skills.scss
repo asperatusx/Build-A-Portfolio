@@ -1,6 +1,10 @@
 @use "../../styles/partials/resets";
 @use "../../styles/partials/variables" as *;
 
+#experience {
+    height: 70vh;
+}
+
 .experience {
 
     &__container > div {

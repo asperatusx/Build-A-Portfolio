@@ -1,6 +1,10 @@
 @use "../../styles/partials/resets";
 @use "../../styles/partials/variables" as *;
 
+#about {
+    height: 70vh;
+}
+
 .about {
     
     &__container {

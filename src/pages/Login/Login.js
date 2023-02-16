@@ -4,6 +4,8 @@ import "./Login.scss"
 import { useNavigate } from 'react-router';
 import {AiOutlineUser} from 'react-icons/ai';
 import {FiLock} from 'react-icons/fi';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const loginUrl = `${process.env.REACT_APP_URL}/login`;
 
@@ -13,6 +15,23 @@ const Login = () => {
 
   const [isLoginError, setIsLoginError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+
+  const notify = (path) => {
+    toast.success('Login Successful! Redirecting to Personal Portfolio', {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      });
+
+      setTimeout(() => {
+        navigate(`/${path}`);
+      }, 3000)
+  }
 
 
   const handleLogin = (e) => {
@@ -26,7 +45,7 @@ const Login = () => {
         setIsLoginError(false);
         setErrorMessage("");
         console.log(data.id);
-        navigate(`/${data.id}`);
+        notify(data.id);
       }).catch(error => {
         setIsLoginError(true);
         setErrorMessage(error.message);
@@ -36,6 +55,7 @@ const Login = () => {
 
   return (
     <div className="login">
+      <ToastContainer />
       <form onSubmit={handleLogin} className="login__container">
         <div className="top">
           <h1>Login</h1>
